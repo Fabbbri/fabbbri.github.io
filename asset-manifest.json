@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.090f3f00.css",
-    "main.js": "/static/js/main.32b58a8b.js",
+    "main.js": "/static/js/main.5ee5d7f9.js",
     "static/js/453.c8c44fa4.chunk.js": "/static/js/453.c8c44fa4.chunk.js",
     "static/media/CV_Fabricio_Gonzalez.pdf": "/static/media/CV_Fabricio_Gonzalez.092ed7b80c2fa55ee2d7.pdf",
     "index.html": "/index.html",
     "main.090f3f00.css.map": "/static/css/main.090f3f00.css.map",
-    "main.32b58a8b.js.map": "/static/js/main.32b58a8b.js.map",
+    "main.5ee5d7f9.js.map": "/static/js/main.5ee5d7f9.js.map",
     "453.c8c44fa4.chunk.js.map": "/static/js/453.c8c44fa4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.090f3f00.css",
-    "static/js/main.32b58a8b.js"
+    "static/js/main.5ee5d7f9.js"
   ]
 }
