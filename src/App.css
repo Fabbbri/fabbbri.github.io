@@ -545,6 +545,13 @@
 
 .ProjectLinks { display: flex; gap: 8px; flex-wrap: wrap; }
 
+/* ── Projects footer note ────────────────────────────────────── */
+.ProjectsNote {
+  margin-top: 32px;
+  font-size: 13.5px;
+  color: var(--muted-2);
+}
+
 /* ── Resume ──────────────────────────────────────────────────── */
 .PdfFrame {
   display: block;

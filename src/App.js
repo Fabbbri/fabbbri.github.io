@@ -95,7 +95,7 @@ function App() {
     info: [
       { label: 'Residence', value: 'Costa Rica'       },
       { label: 'City',      value: 'Guadalupe, Cartago' },
-      { label: 'Age',       value: '22'               },
+      { label: 'Age',       value: '21'               },
     ],
 
     languages: [
@@ -310,6 +310,20 @@ function App() {
                 </Reveal>
               ))}
             </div>
+            <Reveal>
+              <p className="ProjectsNote">
+                Showing 2 featured projects.{' '}
+                <a
+                  className="InlineLink"
+                  href={profile.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View more on my GitHub profile
+                </a>
+                .
+              </p>
+            </Reveal>
           </div>
         </section>
 
