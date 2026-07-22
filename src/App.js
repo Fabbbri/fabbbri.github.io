@@ -52,7 +52,7 @@ function App() {
     email:       'fabriglez.contact@gmail.com',
     residence:   'Costa Rica',
     city:        'Guadalupe, Cartago',
-    age:         '22',
+    age:         '21',
     links: {
       github:   'https://github.com/Fabbbri',
       linkedin: 'https://www.linkedin.com/in/fabricio-gonz%C3%A1lez-cerdas-312844374',
@@ -108,28 +108,14 @@ function App() {
         description:
           'Designed and implemented a custom ARM-based processor in SystemVerilog, including a VGA driver. Executed an assembly application on the designed hardware.',
         stack: ['SystemVerilog', 'Computer Architecture', 'VGA', 'Assembly'],
-        repo: 'https://github.com/Fabbbri',
+        repo: 'https://github.com/Fabbbri/FGonzalez_JZheng_JDiaz_JRodriguez_digital_design_lab_2025',
       },
       {
         title: 'F1 Garage Simulator',
         description:
           'Web-based simulator for managing Formula 1 races. Implemented database-backed data management and integrated Grafana dashboards to visualize performance statistics.',
         stack: ['JavaScript', 'Databases', 'SQL', 'Grafana'],
-        repo: 'https://github.com/Fabbbri',
-      },
-      {
-        title: 'Eigenvalue-Based PCA',
-        description:
-          'Applied eigenvalue/eigenvector techniques to implement Principal Component Analysis for dimensionality reduction, highlighting its relevance to AI and data analysis workflows.',
-        stack: ['Python', 'Linear Algebra', 'PCA', 'Numerical Methods'],
-        repo: 'https://github.com/Fabbbri',
-      },
-      {
-        title: 'RAID Storage Application',
-        description:
-          'File storage application implementing RAID levels to ensure redundancy and fault tolerance, applying concepts of data management and system reliability.',
-        stack: ['C++', 'File Systems', 'RAID', 'Reliability'],
-        repo: 'https://github.com/Fabbbri',
+        repo: 'https://github.com/Fabbbri/F1GarageManager',
       },
     ],
   };
