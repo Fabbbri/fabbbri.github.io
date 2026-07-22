@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.090f3f00.css",
-    "main.js": "/static/js/main.5ee5d7f9.js",
+    "main.css": "/static/css/main.0487c0a9.css",
+    "main.js": "/static/js/main.5ea6a59d.js",
     "static/js/453.c8c44fa4.chunk.js": "/static/js/453.c8c44fa4.chunk.js",
-    "static/media/CV_Fabricio_Gonzalez.pdf": "/static/media/CV_Fabricio_Gonzalez.092ed7b80c2fa55ee2d7.pdf",
+    "static/media/fondo.jpg": "/static/media/fondo.cc7b1d65f991b65bb618.jpg",
+    "static/media/CV_Fabricio_Gonzalez.pdf": "/static/media/CV_Fabricio_Gonzalez.d22ea67cca5c996d33e3.pdf",
     "index.html": "/index.html",
-    "main.090f3f00.css.map": "/static/css/main.090f3f00.css.map",
-    "main.5ee5d7f9.js.map": "/static/js/main.5ee5d7f9.js.map",
+    "main.0487c0a9.css.map": "/static/css/main.0487c0a9.css.map",
+    "main.5ea6a59d.js.map": "/static/js/main.5ea6a59d.js.map",
     "453.c8c44fa4.chunk.js.map": "/static/js/453.c8c44fa4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.090f3f00.css",
-    "static/js/main.5ee5d7f9.js"
+    "static/css/main.0487c0a9.css",
+    "static/js/main.5ea6a59d.js"
   ]
 }
