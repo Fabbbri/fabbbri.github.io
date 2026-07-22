@@ -621,3 +621,114 @@
   transition: color 0.15s;
 }
 .FooterLink:hover { color: var(--accent); }
+
+/* ── Scroll-reveal (Reveal component) ───────────────────────── */
+.Reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.Reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero entrance animation ─────────────────────────────────── */
+.HeroContent--animate > * {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Expertise card accent line on hover ─────────────────────── */
+.ExpertiseCard {
+  position: relative;
+  overflow: hidden;
+}
+.ExpertiseCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(var(--accent-rgb), 0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ExpertiseCard:hover::after { transform: scaleX(1); }
+
+/* ── Project card top accent line on hover ───────────────────── */
+.ProjectCard {
+  position: relative;
+  overflow: hidden;
+}
+.ProjectCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(var(--accent-rgb), 0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ProjectCard:hover::before { transform: scaleX(1); }
+
+/* ── Stack tag hover glow ────────────────────────────────────── */
+.StackTag {
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.StackTag:hover {
+  color: var(--accent);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  background: rgba(var(--accent-rgb), 0.06);
+}
+
+/* ── Skill bar fill animation ────────────────────────────────── */
+.Reveal--visible .BarFill {
+  animation: barGrow 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: inherit;
+}
+
+@keyframes barGrow {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* ── Info card slide-in ──────────────────────────────────────── */
+.InfoCard {
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+.InfoCard:hover {
+  border-color: var(--border-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Btn subtle lift ─────────────────────────────────────────── */
+.Btn, .HeroBtn, .HeroBtnOutline {
+  transition: border-color 0.15s, color 0.15s, background 0.15s,
+              transform 0.15s, box-shadow 0.15s;
+}
+.Btn:hover, .Btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.BtnPrimary:hover, .BtnPrimary:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.18);
+}
+
+/* ── Section heading slide-in underline ──────────────────────── */
+.SectionHeading {
+  position: relative;
+  display: inline-block;
+}
+

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import fondoImg  from './fondo.jpg';
 import cvPdfUrl  from './CV_Fabricio_Gonzalez.pdf';
@@ -39,6 +39,37 @@ function useScrolled(threshold) {
   return scrolled;
 }
 
+/* ── InView hook (scroll-reveal) ─────────────────────────────── */
+function useInView(options) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold: 0.12, ...options }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [options]);
+  return [ref, inView];
+}
+
+/* ── Animated section wrapper ────────────────────────────────── */
+function Reveal({ children, className = '', delay = 0 }) {
+  const [ref, inView] = useInView();
+  return (
+    <div
+      ref={ref}
+      className={`Reveal${inView ? ' Reveal--visible' : ''} ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    >
+      {children}
+    </div>
+  );
+}
+
 /* ── App ─────────────────────────────────────────────────────── */
 function App() {
   const scrolled = useScrolled(80);
@@ -55,7 +86,7 @@ function App() {
     age:         '21',
     links: {
       github:   'https://github.com/Fabbbri',
-      linkedin: 'https://www.linkedin.com/in/fabricio-gonz%C3%A1lez-cerdas-312844374',
+      linkedin: 'https://www.linkedin.com/in/fabriciogonzalezcerdas/',
       cv:       cvPdfUrl,
     },
     about:
@@ -153,12 +184,12 @@ function App() {
           aria-label="Introduction"
         >
           <div className="HeroOverlay" aria-hidden="true" />
-          <div className="HeroContent">
-            <p className="HeroEyebrow">{profile.eyebrow}</p>
-            <h1 className="HeroName">{profile.name}</h1>
-            <p className="HeroRole">{profile.role}</p>
-            <p className="HeroTagline">{profile.tagline}</p>
-            <div className="HeroActions">
+          <div className="HeroContent HeroContent--animate">
+            <p className="HeroEyebrow" style={{ animationDelay: '0.1s' }}>{profile.eyebrow}</p>
+            <h1 className="HeroName" style={{ animationDelay: '0.25s' }}>{profile.name}</h1>
+            <p className="HeroRole" style={{ animationDelay: '0.4s' }}>{profile.role}</p>
+            <p className="HeroTagline" style={{ animationDelay: '0.55s' }}>{profile.tagline}</p>
+            <div className="HeroActions" style={{ animationDelay: '0.7s' }}>
               <a href="#contact" className="HeroBtn">Get in touch</a>
               <a href="#projects" className="HeroBtnOutline">View projects</a>
             </div>
@@ -174,7 +205,7 @@ function App() {
             <p className="SectionLabel">About me</p>
             <h2 className="SectionHeading">Who I am</h2>
             <div className="AboutGrid">
-              <div>
+              <Reveal>
                 <p className="Paragraph">{profile.about}</p>
                 <div className="AboutActions">
                   <a className="Btn BtnPrimary" href={profile.links.cv} target="_blank" rel="noopener noreferrer">Download CV</a>
@@ -185,7 +216,7 @@ function App() {
                     <LinkedInIcon className="BtnIcon" /> LinkedIn
                   </a>
                 </div>
-              </div>
+              </Reveal>
               <div className="AboutSidebar">
                 {profile.info.map((item) => (
                   <div key={item.label} className="InfoCard">
@@ -208,8 +239,9 @@ function App() {
             <p className="SectionLabel">What I know</p>
             <h2 className="SectionHeading">Skills</h2>
             <div className="SkillsGrid">
-              {profile.skills.map((skill) => (
-                <div key={skill.label} className="SkillItem">
+              {profile.skills.map((skill, i) => (
+                <Reveal key={skill.label} delay={i * 60}>
+                <div className="SkillItem">
                   <div className="SkillHeader">
                     <span className="SkillLabel">{skill.label}</span>
                     <span className="SkillPct">{skill.value}%</span>
@@ -218,6 +250,7 @@ function App() {
                     <div className="BarFill" style={{ width: `${skill.value}%` }} />
                   </div>
                 </div>
+                </Reveal>
               ))}
             </div>
             <div className="LangGrid">
@@ -237,12 +270,14 @@ function App() {
             <p className="SectionLabel">What I do</p>
             <h2 className="SectionHeading">My expertise</h2>
             <div className="Cards3">
-              {profile.expertise.map((item) => (
-                <article key={item.title} className="ExpertiseCard">
+              {profile.expertise.map((item, i) => (
+                <Reveal key={item.title} delay={i * 100}>
+                <article className="ExpertiseCard">
                   <div className="ExpertiseNum">{item.num}</div>
                   <h3 className="ExpertiseTitle">{item.title}</h3>
                   <p className="Paragraph">{item.description}</p>
                 </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -254,8 +289,9 @@ function App() {
             <p className="SectionLabel">What I’ve built</p>
             <h2 className="SectionHeading">Projects</h2>
             <div className="ProjectsGrid">
-              {profile.projects.map((project) => (
-                <article key={project.title} className="ProjectCard">
+              {profile.projects.map((project, i) => (
+                <Reveal key={project.title} delay={i * 100}>
+                <article className="ProjectCard">
                   <h3 className="ProjectTitle">{project.title}</h3>
                   <p className="ProjectDesc">{project.description}</p>
                   <div className="ProjectStack">
@@ -271,6 +307,7 @@ function App() {
                     )}
                   </div>
                 </article>
+                </Reveal>
               ))}
             </div>
           </div>
